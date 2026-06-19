@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alexandros Emmanouilidis",
+  "alternateName": "Alex Emmanouilidis",
+  "url": "https://alexemm.com",
+  "image": "https://alexemm.com/images/alex-hero.jpg",
+  "description": "Computer Science student at the University of Cyprus, national fencing champion, and fantasy writer based in Cyprus.",
+  "jobTitle": "Computer Science Student",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Cyprus",
+    "url": "https://www.ucy.ac.cy"
+  },
+  "nationality": "Cypriot",
+  "sameAs": [
+    "https://instagram.com/alexandros_emmanouilides",
+    "https://www.facebook.com/share/17GjSfEDzu/?mibextid=wwXIfr"
+  ]
+};
+---
+
+<BaseLayout
+  title="About"
+  description="Born in Sweden, raised in Cyprus. Orthodox Christian, elite fencer since age 6, CS student at UCY, and a fantasy writer in progress. Alex Emmanouilidis."
+  schema={personSchema}
+>
+
+  <section class="section">
+    <div class="container--narrow">
+
+      <span class="section-label">About</span>
+      <h1>My story</h1>
+
+      <div class="about-hero-img">
+        <img
+          src="/images/alex-hero.jpg"
+          alt="Alexandros Emmanouilidis"
+          width="720"
+          height="420"
+          loading="eager"
+        />
+      </div>
+
+      <div class="about-body">
+        <p>
+          I was born in Sweden to a Greek-Cypriot father and a Russian mother. Growing up
+          with Orthodox Christianity, Mediterranean warmth, and Slavic directness shaped how I
+          see the world long before I had words for it. I've lived in Cyprus long enough to call
+          it home, but the mix never fully settles. I speak Greek and English fluently, Russian
+          well enough to get by, and I've learned that growing up between cultures either
+          confuses you or makes you adaptable. It did the latter.
+        </p>
+
+        <h2 class="about-subhead">Fencing</h2>
+        <p>
+          The biggest thing that shaped me isn't on any CV. It's fencing. My father brought
+          the sport to Cyprus and founded its first club. I picked up a sword at six years old
+          and never really put it down. I became champion in every age category I competed in.
+          I travelled to many countries competing at European and World events. I made the
+          national team, competing with support from the federation and the Bank of Cyprus.
+          At my last year as a Cadet, I became the first Cypriot to reach the Top 32 at both
+          the European and World Championships.
+        </p>
+        <p>
+          Fencing gave me discipline, drive, and a very specific relationship with losing. You
+          compete alone on a piste, no team to blame, no referee to hide behind. Just you and
+          what you've put into it. I lost plenty over the years. Each defeat taught me
+          something the victories didn't.
+        </p>
+        <p>
+          In July 2025, I fractured my right metacarpal. My sword hand. Two surgical nails in
+          it for three months. I haven't fenced since. For someone who's been training since
+          before they could read properly, that's a strange kind of quiet. I'm not done with
+          fencing. But for now, I wait.
+        </p>
+
+        <div class="about-fencing-img">
+          <img
+            src="/images/alex-fencing-1.jpg"
+            alt="Alexandros competing in fencing"
+            width="720"
+            height="480"
+            loading="lazy"
+          />
+        </div>
+
+        <h2 class="about-subhead">Family and service</h2>
+        <p>
+          I'm the oldest of five — three sisters and a brother, the youngest sixteen years my
+          junior. Responsibility found me early. At eighteen, I served fourteen months in the
+          Cypriot military. Mandatory, but not meaningless.
+        </p>
+
+        <h2 class="about-subhead">Computers and networks</h2>
+        <p>
+          Through all of it, I was falling in love with computers and networks. What started as
+          curiosity in high school grew into something I couldn't ignore. Now I'm studying
+          Computer Science at the University of Cyprus and interning at PwC this summer.
+          Networking is where I want to specialise — the architecture of how things connect,
+          how information moves, how systems hold together or fall apart.
+        </p>
+
+        <h2 class="about-subhead">Writing and worlds</h2>
+        <p>
+          Outside of CS, I fell in love with reading somewhere along the way. Fantasy above all
+          else. Which is how I ended up building something of my own: a fantasy world from
+          scratch. Not adapting anything, not borrowing a setting — building the mythology, the
+          geography, the logic of that world, and eventually writing a full novel set inside it.
+          Possibly many. That project moves slowly and deliberately, which suits it.
+        </p>
+
+        <h2 class="about-subhead">Faith</h2>
+        <p>
+          One more thing people tend to be surprised by: I'm a Greek Orthodox Christian, and I
+          mean that sincerely. My faith isn't inherited habit. It's the result of years of
+          research, reading, debate, and a lot of genuine searching. The more I look, the more
+          convinced I become. That's not something I'll be argued out of. I also practise
+          Byzantine music — the ancient choral tradition of the Church. Different from fencing,
+          different from code, but the same instinct: find something worth going deep into, and
+          go deep.
+        </p>
+      </div>
+
+      <div class="about-links">
+        <a href="/cv" class="btn btn--primary">See my CV</a>
+        <a href="/portfolio" class="btn btn--ghost">Portfolio</a>
+        <a href="/contact" class="btn btn--ghost">Get in touch</a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  h1 {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-xl);
+  }
+
+  .about-hero-img {
+    margin-bottom: var(--space-xl);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .about-hero-img img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .about-body {
+    margin-bottom: var(--space-xl);
+  }
+
+  .about-body p {
+    max-width: 65ch;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  .about-subhead {
+    font-size: 1.5rem;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .about-fencing-img {
+    margin-block: var(--space-xl);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .about-fencing-img img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+  }
+
+  .about-links {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 480px) {
+    .about-links {
+      flex-direction: column;
+    }
+  }
+</style>

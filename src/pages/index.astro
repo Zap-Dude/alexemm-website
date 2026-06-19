@@ -1,0 +1,340 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Home"
+  description="Alexandros Emmanouilidis — Computer Science student and fencer based in Cyprus. Studying networks at UCY, interning at PwC, and building a fantasy world."
+>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero section">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1 class="hero-headline">
+          CS student.<br />
+          Fencer.<br />
+          Builder of worlds.
+        </h1>
+        <p class="hero-sub">
+          I'm Alexandros — studying Computer Science in Cyprus,
+          fencing since I was six, and writing a fantasy novel somewhere in between.
+        </p>
+        <div class="hero-actions">
+          <a href="/about" class="btn btn--primary">About me</a>
+          <a href="/cv" class="btn btn--ghost">CV</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img
+          src="/images/alex-hero.jpg"
+          alt="Alexandros Emmanouilidis"
+          class="hero-photo"
+          width="480"
+          height="560"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT SNIPPET ===================== -->
+  <section class="section section--tighter about-strip">
+    <div class="container--narrow">
+      <span class="section-label">A bit about me</span>
+      <p class="about-pull">
+        Born in Sweden to a Greek-Cypriot father and a Russian mother. I've spent my life
+        between cultures, languages, and disciplines — and I've found that's mostly an advantage.
+      </p>
+      <a href="/about" class="text-link">Full story &rarr;</a>
+    </div>
+  </section>
+
+  <hr class="divider container" />
+
+  <!-- ===================== PORTFOLIO PREVIEW ===================== -->
+  <section class="section portfolio-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Portfolio</span>
+        <h2>Things I've made</h2>
+      </div>
+
+      <div class="card-grid">
+        <a href="/portfolio#blind-tracks" class="card">
+          <span class="card-tag">Fiction</span>
+          <h3 class="card-title">Blind Tracks</h3>
+          <p class="card-desc">
+            A fantasy short story. Third place, UCY Student Club Literary Competition 2026.
+          </p>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+
+        <a href="/portfolio#the-world" class="card">
+          <span class="card-tag">Creative · WIP</span>
+          <h3 class="card-title">The World</h3>
+          <p class="card-desc">
+            An original fantasy world — mythology, geography, magic — built from scratch.
+            A novel in progress.
+          </p>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+
+        <a href="/portfolio#gomoku" class="card">
+          <span class="card-tag">Java · CS</span>
+          <h3 class="card-title">Gomoku</h3>
+          <p class="card-desc">
+            A fully playable board game with AI opponent. First-year university coursework.
+          </p>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+      </div>
+
+      <a href="/portfolio" class="btn btn--ghost" style="margin-top: var(--space-lg)">
+        See all work
+      </a>
+    </div>
+  </section>
+
+  <hr class="divider container" />
+
+  <!-- ===================== SPORT SNIPPET ===================== -->
+  <section class="section sport-strip">
+    <div class="container sport-inner">
+      <div class="sport-text">
+        <span class="section-label">Sport</span>
+        <h2>Fencing since age&nbsp;6</h2>
+        <p>
+          Cyprus champion across every age category. National team. Top 32 at
+          European and World Championships at Cadet level — the first Cypriot to get there.
+        </p>
+        <a href="/sport" class="btn btn--ghost">The full story</a>
+      </div>
+      <div class="sport-photo-wrap">
+        <img
+          src="/images/alex-fencing-bw.jpg"
+          alt="Alexandros fencing in competition"
+          class="sport-photo"
+          width="400"
+          height="480"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider container" />
+
+  <!-- ===================== BLOG SNIPPET ===================== -->
+  <section class="section section--tighter blog-strip">
+    <div class="container">
+      <span class="section-label">Blog</span>
+      <h2>Writing, when I have something to say</h2>
+      <p class="blog-sub">No posts yet — coming soon.</p>
+      <a href="/blog" class="text-link">Go to blog &rarr;</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ----- Hero ----- */
+  .hero {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .hero-headline {
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-sub {
+    font-size: 1.1875rem;
+    color: var(--color-text-muted);
+    max-width: 52ch;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .hero-photo-wrap {
+    flex-shrink: 0;
+  }
+
+  .hero-photo {
+    width: 320px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: sepia(8%) contrast(1.02);
+  }
+
+  /* ----- About strip ----- */
+  .about-pull {
+    font-size: 1.25rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--color-text);
+    max-width: 60ch;
+    margin-bottom: var(--space-sm);
+  }
+
+  .text-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .text-link:hover {
+    color: var(--color-accent-dark);
+    text-decoration: underline;
+  }
+
+  /* ----- Portfolio cards ----- */
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-header h2 {
+    margin-top: var(--space-xs);
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: var(--space-lg);
+    text-decoration: none;
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    transition: border-color var(--transition), transform var(--transition);
+    position: relative;
+  }
+
+  .card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    color: var(--color-text);
+  }
+
+  .card-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .card-title {
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    margin-top: var(--space-xs);
+  }
+
+  .card-desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    flex: 1;
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  .card-arrow {
+    font-size: 1rem;
+    color: var(--color-accent);
+    margin-top: var(--space-xs);
+    align-self: flex-start;
+  }
+
+  /* ----- Sport strip ----- */
+  .sport-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .sport-text p {
+    max-width: 52ch;
+    margin-bottom: var(--space-md);
+  }
+
+  .sport-text h2 {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .sport-photo {
+    width: 280px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(10%);
+  }
+
+  /* ----- Blog strip ----- */
+  .blog-sub {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+  }
+
+  /* ----- Responsive ----- */
+  @media (max-width: 900px) {
+    .card-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-photo-wrap {
+      order: -1;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 320px;
+    }
+
+    .sport-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .sport-photo-wrap {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

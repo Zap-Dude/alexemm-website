@@ -1,0 +1,346 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Sport"
+  description="Fencing since age 6. Cyprus national champion across every age category. First Cypriot to reach Top 32 at European and World Championships at Cadet level."
+>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Hero -->
+      <div class="sport-hero">
+        <div class="sport-hero-text">
+          <span class="section-label">Sport</span>
+          <h1>Fencing since age&nbsp;6</h1>
+          <p class="sport-lead">
+            Fencing has been the spine of my life since I was six years old. My father
+            brought the sport to Cyprus and founded its first club. I was always going to
+            fence. What I didn't expect was how far it would take me.
+          </p>
+        </div>
+        <div class="sport-hero-img">
+          <img
+            src="/images/alex-fencing-bw.jpg"
+            alt="Alexandros fencing in competition"
+            width="480"
+            height="560"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Career highlights -->
+      <div class="sport-content container--narrow">
+        <h2>Career highlights</h2>
+
+        <ul class="highlights-list">
+          <li>Started fencing aged 6 at my father's club — the first fencing club in Cyprus</li>
+          <li>Cyprus Champion in every age category, all the way through to U21</li>
+          <li>Member of the Cyprus National Fencing Team (Épée)</li>
+          <li>Competed internationally across Europe and beyond, supported by the Cyprus Fencing Federation and the Bank of Cyprus</li>
+          <li class="highlight-featured">
+            <strong>First Cypriot to reach the Top 32 at both the European and World Championships at Cadet level</strong>
+          </li>
+          <li>National Fencing Referee (Épée) since 2024 — officiating national-level competitions</li>
+        </ul>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Photo gallery -->
+      <div class="gallery-section">
+        <h2 class="gallery-title">From the piste</h2>
+        <div class="gallery">
+          <div class="gallery-item gallery-item--wide">
+            <img
+              src="/images/alex-fencing-1.jpg"
+              alt="Alexandros in fencing competition"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="/images/alex-fencing-2.jpg"
+              alt="Alexandros competing in épée"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="/images/alex-fencing-3.jpg"
+              alt="Alexandros at a fencing tournament"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="/images/alex-fencing-4.jpg"
+              alt="Alexandros in fencing gear"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="/images/alex-fencing-with-father.jpg"
+              alt="Alexandros with his father at a fencing event"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item gallery-item--accent">
+            <img
+              src="/images/alex-fencing-age-7.jpg"
+              alt="Alexandros fencing aged 7"
+              loading="lazy"
+            />
+            <span class="gallery-caption">Age 7. Already serious about it.</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Current status -->
+      <div class="sport-content container--narrow">
+        <h2>Right now</h2>
+        <p>
+          In July 2025, I fractured my right metacarpal — my sword hand — and had two
+          surgical nails in for three months. I haven't trained fencing since. Moving to
+          Nicosia for university has added another layer of distance from the sport, for
+          now.
+        </p>
+        <p>
+          I intend to get back on the piste. The question is when, not if. In the
+          meantime, the gym keeps the physical discipline that fencing built from
+          disappearing entirely.
+        </p>
+
+        <div class="goals-box">
+          <span class="goals-label">Goals</span>
+          <ul class="goals-list">
+            <li>Return to fencing when circumstances allow</li>
+            <li>Maintain the conditioning built over years of elite training</li>
+            <li>Long-term: continue competing, potentially move into higher-level refereeing</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .sport-hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  h1 {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .sport-lead {
+    font-size: 1.125rem;
+    max-width: 56ch;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .sport-hero-img img {
+    width: 320px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(15%);
+  }
+
+  /* Content sections */
+  .sport-content {
+    padding-inline: 0;
+    margin-bottom: var(--space-sm);
+  }
+
+  .sport-content h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Highlights list */
+  .highlights-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .highlights-list li {
+    font-size: 1.0625rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.65;
+  }
+
+  .highlights-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    top: 0.15em;
+  }
+
+  .highlight-featured {
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-accent);
+    padding: var(--space-sm) var(--space-md) var(--space-sm) calc(var(--space-md) + 1.5rem);
+    border-radius: 0 4px 4px 0;
+    margin-block: var(--space-xs);
+  }
+
+  .highlight-featured::before {
+    left: var(--space-md);
+  }
+
+  /* Gallery */
+  .gallery-section {
+    margin-bottom: var(--space-sm);
+  }
+
+  .gallery-title {
+    margin-bottom: var(--space-lg);
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: var(--space-sm);
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: transform 400ms ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.03);
+  }
+
+  .gallery-item--wide {
+    grid-column: span 2;
+  }
+
+  .gallery-item--wide img {
+    height: 360px;
+  }
+
+  .gallery-item--accent {
+    position: relative;
+  }
+
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-xs) var(--space-sm);
+    background: linear-gradient(transparent, rgba(44, 24, 16, 0.75));
+    color: #fff;
+    font-size: 0.8125rem;
+    font-style: italic;
+  }
+
+  /* Goals */
+  .goals-box {
+    margin-top: var(--space-lg);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: var(--space-lg);
+  }
+
+  .goals-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .goals-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .goals-list li {
+    font-size: 0.9375rem;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .goals-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    top: 0.1em;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .gallery {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-item--wide {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sport-hero {
+      grid-template-columns: 1fr;
+    }
+
+    .sport-hero-img {
+      display: none;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-item--wide {
+      grid-column: span 1;
+    }
+
+    .gallery-item--wide img {
+      height: 260px;
+    }
+  }
+</style>

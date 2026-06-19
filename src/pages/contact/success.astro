@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Message sent"
+  description="Your message has been sent."
+>
+  <section class="section">
+    <div class="container--narrow success-wrap">
+      <span class="success-icon" aria-hidden="true">✓</span>
+      <h1>Message sent</h1>
+      <p>Thanks for getting in touch. I'll get back to you when I can.</p>
+      <a href="/" class="btn btn--ghost">Back to home</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .success-wrap {
+    text-align: center;
+    padding-top: var(--space-3xl);
+  }
+
+  .success-icon {
+    display: block;
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  p {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    margin-bottom: var(--space-lg);
+    max-width: 40ch;
+    margin-inline: auto;
+  }
+</style>

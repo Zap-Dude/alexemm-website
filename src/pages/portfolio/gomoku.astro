@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Gomoku"
+  description="A fully playable Gomoku board game with AI opponent, built in Java by Alexandros Emmanouilidis. First-year CS coursework with three play modes and JUnit tests."
+>
+
+  <section class="section">
+    <div class="container--narrow">
+
+      <a href="/portfolio" class="back-link">&larr; Portfolio</a>
+
+      <div class="project-header">
+        <span class="item-tag">Java · Software · 2026</span>
+        <h1>Gomoku</h1>
+      </div>
+
+      <div class="project-body">
+        <p class="project-lead">
+          A fully playable implementation of Gomoku — the Japanese five-in-a-row strategy
+          game — built from scratch in Java.
+        </p>
+
+        <p>
+          Three play modes: Human vs Human, Human vs Computer, and Computer vs Computer.
+          The computer opponent uses a strategy-based AI — evaluating board positions to
+          make competitive moves rather than playing randomly. The board renders to the
+          terminal, and a full suite of JUnit unit tests covers the core game logic.
+        </p>
+
+        <div class="spec-grid">
+          <div class="spec-item">
+            <span class="spec-label">Language</span>
+            <span class="spec-value">Java</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Context</span>
+            <span class="spec-value">Year 1 university coursework, Semester 2</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Year</span>
+            <span class="spec-value">2026</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Testing</span>
+            <span class="spec-value">JUnit unit tests</span>
+          </div>
+        </div>
+
+        <h2 class="section-subhead">What it demonstrates</h2>
+        <ul class="feature-list">
+          <li>Object-oriented design with clear separation of concerns</li>
+          <li>AI logic — position evaluation and strategic decision-making</li>
+          <li>Unit testing with JUnit</li>
+          <li>Clean code documentation (Javadoc)</li>
+          <li>Three-mode game loop with input validation</li>
+        </ul>
+
+        <div class="honest-note">
+          <span class="note-label">Honest framing</span>
+          <p>This is first-year coursework, not a commercial project. It's here because it
+          is complete, functional, and demonstrates structured thinking at the start of a
+          CS degree. As more substantial work accumulates, it will move down the list.</p>
+        </div>
+
+        <a
+          href="https://github.com/alexemm"
+          class="btn btn--ghost source-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View source on GitHub &rarr;
+        </a>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="project-footer">
+        <a href="/portfolio" class="btn btn--ghost">&larr; Back to portfolio</a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: var(--space-xl);
+    transition: color var(--transition);
+  }
+
+  .back-link:hover { color: var(--color-accent); }
+
+  .project-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .item-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  h1 { margin-top: 0; }
+
+  .project-lead {
+    font-size: 1.25rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+    max-width: 56ch;
+    margin-bottom: var(--space-lg);
+    line-height: 1.5;
+  }
+
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm) var(--space-xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: var(--space-lg);
+    margin-block: var(--space-xl);
+  }
+
+  .spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .spec-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .spec-value {
+    font-size: 0.9375rem;
+    color: var(--color-text);
+  }
+
+  .section-subhead {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .feature-list li {
+    font-size: 0.9375rem;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .feature-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    top: 0.1em;
+  }
+
+  .honest-note {
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-border);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: var(--space-xl);
+  }
+
+  .note-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .honest-note p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 55ch;
+  }
+
+  .source-link {
+    display: inline-flex;
+  }
+
+  .project-footer {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 480px) {
+    .spec-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

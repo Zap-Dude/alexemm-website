@@ -1,0 +1,164 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  tags?: string[];
+}
+
+const { title, description, date, tags = [] } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": date.toISOString(),
+  "url": Astro.url.href,
+  "author": {
+    "@type": "Person",
+    "name": "Alexandros Emmanouilidis",
+    "url": "https://alexemm.com/about"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alexandros Emmanouilidis",
+    "url": "https://alexemm.com"
+  }
+};
+---
+
+<BaseLayout title={title} description={description} schema={articleSchema}>
+  <article class="section">
+    <div class="container--narrow">
+
+      <a href="/blog" class="back-link">&larr; Blog</a>
+
+      <header class="post-header">
+        <time class="post-date" datetime={date.toISOString()}>{formattedDate}</time>
+        <h1 class="post-title">{title}</h1>
+        {tags.length > 0 && (
+          <div class="post-tags" aria-label="Tags">
+            {tags.map(tag => <span class="tag">{tag}</span>)}
+          </div>
+        )}
+      </header>
+
+      <hr class="divider" />
+
+      <div class="post-body">
+        <slot />
+      </div>
+
+      <hr class="divider" />
+
+      <a href="/blog" class="btn btn--ghost">&larr; All posts</a>
+
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: var(--space-xl);
+    transition: color var(--transition);
+  }
+
+  .back-link:hover { color: var(--color-accent); }
+
+  .post-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .post-date {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .post-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+  }
+
+  /* Post prose */
+  .post-body {
+    font-size: 1.125rem;
+    line-height: 1.85;
+  }
+
+  .post-body :global(p) {
+    max-width: 66ch;
+    margin-bottom: 1.4em;
+  }
+
+  .post-body :global(h2) {
+    font-size: 1.75rem;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .post-body :global(h3) {
+    font-size: 1.25rem;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.4em;
+  }
+
+  .post-body :global(li) {
+    margin-bottom: 0.4em;
+  }
+
+  .post-body :global(blockquote) {
+    border-left: 3px solid var(--color-accent);
+    padding-left: var(--space-md);
+    margin-left: 0;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .post-body :global(code) {
+    background: var(--color-surface);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-family: 'Courier New', monospace;
+  }
+</style>

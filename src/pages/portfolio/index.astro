@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Portfolio"
+  description="Three works by Alexandros Emmanouilidis — a prize-winning fantasy short story, an original fantasy world in development, and a Java board game with AI."
+>
+
+  <section class="section">
+    <div class="container">
+
+      <span class="section-label">Portfolio</span>
+      <h1>Things I've made</h1>
+      <p class="portfolio-intro">
+        Three things — a short story that placed in competition, a fantasy world still
+        under construction, and a board game built from scratch. More to come.
+      </p>
+
+      <div class="portfolio-list">
+
+        <!-- Blind Tracks -->
+        <article class="portfolio-item" id="blind-tracks">
+          <div class="portfolio-item-meta">
+            <span class="item-tag">Fiction</span>
+            <span class="item-year">2026</span>
+          </div>
+          <div class="portfolio-item-body">
+            <h2 class="item-title">Blind Tracks</h2>
+            <p class="item-desc">
+              A fantasy short story. Taren — a "Null", someone born without the ability to
+              use the Dream — defies his chief's orders to search for a missing convoy member
+              alone in a crimson storm. The story explores what it means to be powerless in a
+              world built around power, and how that absence becomes its own kind of strength.
+            </p>
+            <p class="item-recognition">
+              Third place, University of Cyprus Student Club Literary Competition 2026.
+            </p>
+            <a href="/portfolio/blind-tracks" class="btn btn--primary item-cta">Read the story</a>
+          </div>
+        </article>
+
+        <hr class="divider" />
+
+        <!-- The World -->
+        <article class="portfolio-item" id="the-world">
+          <div class="portfolio-item-meta">
+            <span class="item-tag">Creative · WIP</span>
+            <span class="item-year">Ongoing</span>
+          </div>
+          <div class="portfolio-item-body">
+            <h2 class="item-title">The World</h2>
+            <p class="item-desc">
+              An original fantasy world built from scratch — not adapted from existing fiction,
+              not borrowing established settings. The mythology, geography, history, magic
+              system, species, and internal logic of this world are being developed with the
+              intention of writing a full novel set inside it. Blind Tracks is the first
+              published piece set here.
+            </p>
+            <p class="item-recognition">
+              What it shows: long-term creative ambition, original thinking, worldbuilding discipline.
+            </p>
+            <a href="/portfolio/the-world" class="btn btn--ghost item-cta">Learn more</a>
+          </div>
+        </article>
+
+        <hr class="divider" />
+
+        <!-- Gomoku -->
+        <article class="portfolio-item" id="gomoku">
+          <div class="portfolio-item-meta">
+            <span class="item-tag">Java · Software</span>
+            <span class="item-year">2026</span>
+          </div>
+          <div class="portfolio-item-body">
+            <h2 class="item-title">Gomoku</h2>
+            <p class="item-desc">
+              A fully playable implementation of Gomoku — the Japanese five-in-a-row strategy
+              game — built as first-year Computer Science coursework. Three play modes: Human
+              vs Human, Human vs Computer, and Computer vs Computer. Includes an AI strategy,
+              board rendering, and a full suite of JUnit unit tests.
+            </p>
+            <p class="item-recognition">
+              What it shows: object-oriented design, AI logic, unit testing, clean code
+              documentation. First-year coursework — included because it is complete,
+              functional, and demonstrates structured thinking.
+            </p>
+            <a href="/portfolio/gomoku" class="btn btn--ghost item-cta">See the project</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  h1 {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-md);
+  }
+
+  .portfolio-intro {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 60ch;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .portfolio-list {
+    max-width: 800px;
+  }
+
+  .portfolio-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  .portfolio-item-meta {
+    padding-top: 0.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .item-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .item-year {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .item-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: var(--space-md);
+    margin-top: 0;
+  }
+
+  .item-desc {
+    font-size: 1rem;
+    color: var(--color-text);
+    max-width: 60ch;
+    margin-bottom: var(--space-sm);
+  }
+
+  .item-recognition {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-bottom: var(--space-md);
+    max-width: 60ch;
+  }
+
+  .item-cta {
+    align-self: flex-start;
+  }
+
+  @media (max-width: 640px) {
+    .portfolio-item {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
+    }
+
+    .portfolio-item-meta {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-md);
+    }
+  }
+</style>

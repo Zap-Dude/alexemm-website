@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="The World"
+  description="An original fantasy world by Alexandros Emmanouilidis — built from scratch, with its own mythology, geography, magic system, and a novel in progress here."
+>
+
+  <section class="section">
+    <div class="container--narrow">
+
+      <a href="/portfolio" class="back-link">&larr; Portfolio</a>
+
+      <div class="project-header">
+        <span class="item-tag">Creative · Worldbuilding · Work in progress</span>
+        <h1>The World</h1>
+      </div>
+
+      <div class="project-body">
+        <p class="project-lead">
+          An original fantasy world — not adapted from existing fiction, not borrowing
+          established settings. Built from scratch, with the intention of writing a full
+          novel set inside it. Possibly many.
+        </p>
+
+        <p>
+          The mythology, geography, history, magic system, species, and internal logic of
+          this world are being developed in parallel with the fiction it will eventually
+          contain. Everything is made to be consistent — the rules of the Dream (the world's
+          ambient magical force), the way societies formed around access to it, the
+          geography that shaped those societies, and the history that resulted.
+        </p>
+
+        <p>
+          <a href="/portfolio/blind-tracks">Blind Tracks</a> is the first published piece
+          set here. Taren, the Null who follows blind tracks through a crimson storm, exists
+          inside this world. The story was written to test whether the internal logic held
+          under narrative pressure. It did.
+        </p>
+
+        <p>
+          The project moves slowly and deliberately. That's by design — a world built in
+          a weekend collapses under its own weight. This one is being built to last.
+        </p>
+
+        <div class="wip-note">
+          <span class="wip-label">Status</span>
+          <p>Ongoing. The world is under active development. The novel is in early stages.
+          Updates will appear here when there's something worth sharing.</p>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="project-footer">
+        <a href="/portfolio" class="btn btn--ghost">&larr; Back to portfolio</a>
+        <a href="/portfolio/blind-tracks" class="btn btn--ghost">Read Blind Tracks &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: var(--space-xl);
+    transition: color var(--transition);
+  }
+
+  .back-link:hover { color: var(--color-accent); }
+
+  .project-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .item-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .project-body {
+    margin-bottom: var(--space-xl);
+  }
+
+  .project-lead {
+    font-size: 1.25rem;
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--color-text);
+    max-width: 58ch;
+    margin-bottom: var(--space-lg);
+    line-height: 1.5;
+  }
+
+  .project-body p {
+    font-size: 1.0625rem;
+    max-width: 62ch;
+  }
+
+  .wip-note {
+    margin-top: var(--space-xl);
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-accent);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .wip-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .wip-note p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 55ch;
+  }
+
+  .project-footer {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+</style>
