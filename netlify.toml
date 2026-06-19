@@ -6,6 +6,18 @@
   NODE_VERSION = "20"
 
 [[redirects]]
+  from = "http://alexemm.com/*"
+  to = "https://alexemm.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.alexemm.com/*"
+  to = "https://alexemm.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/404"
   status = 404
