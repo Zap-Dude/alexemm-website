@@ -47,22 +47,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <div class="portfolio-item-meta">
             <span class="item-tag">Creative · WIP</span>
             <span class="item-year">Ongoing</span>
-          </div>
-          <div class="portfolio-item-body portfolio-item-body--with-image">
-            <div class="portfolio-item-text">
-              <h2 class="item-title">Zeton</h2>
-              <p class="item-desc">
-                An original fantasy world built from scratch — not adapted from existing fiction,
-                not borrowing established settings. The mythology, geography, history, magic
-                system, species, and internal logic of this world are being developed with the
-                intention of writing a full novel set inside it. Blind Tracks is the first
-                published piece set here.
-              </p>
-              <p class="item-recognition">
-                What it shows: long-term creative ambition, original thinking, worldbuilding discipline.
-              </p>
-              <a href="/portfolio/the-world" class="btn btn--ghost item-cta">Learn more</a>
-            </div>
             <div class="portfolio-item-image">
               <img
                 src="/images/zeton.jpg"
@@ -72,6 +56,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 loading="lazy"
               />
             </div>
+          </div>
+          <div class="portfolio-item-body">
+            <h2 class="item-title">Zeton</h2>
+            <p class="item-desc">
+              An original fantasy world built from scratch — not adapted from existing fiction,
+              not borrowing established settings. The mythology, geography, history, magic
+              system, species, and internal logic of this world are being developed with the
+              intention of writing a full novel set inside it. Blind Tracks is the first
+              published piece set here.
+            </p>
+            <p class="item-recognition">
+              What it shows: long-term creative ambition, original thinking, worldbuilding discipline.
+            </p>
+            <a href="/portfolio/the-world" class="btn btn--ghost item-cta">Learn more</a>
           </div>
         </article>
 
@@ -175,11 +173,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     align-self: flex-start;
   }
 
-  .portfolio-item-body--with-image {
-    display: grid;
-    grid-template-columns: 1fr 180px;
-    gap: var(--space-xl);
-    align-items: start;
+  .portfolio-item-image {
+    margin-top: var(--space-md);
   }
 
   .portfolio-item-image img {
@@ -201,12 +196,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       gap: var(--space-md);
     }
 
-    .portfolio-item-body--with-image {
-      grid-template-columns: 1fr;
-    }
-
     .portfolio-item-image {
-      max-width: 200px;
+      max-width: 160px;
     }
   }
 </style>
