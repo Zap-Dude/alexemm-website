@@ -13,7 +13,7 @@ interface Props {
 
 const {
   title,
-  description = 'Alexandros Emmanouilidis — Computer Science student, fencer, and writer based in Cyprus.',
+  description = 'Alexandros Emmanouilidis - Computer Science student, fencer, and writer based in Cyprus.',
   ogImage = '/images/og-image.jpg',
   canonicalURL = Astro.url.href,
   schema,
@@ -21,7 +21,7 @@ const {
 
 const fullTitle = title === 'Home'
   ? 'Alex Emmanouilidis'
-  : `${title} — Alex Emmanouilidis`;
+  : `${title} - Alex Emmanouilidis`;
 ---
 
 <!doctype html>
@@ -30,7 +30,7 @@ const fullTitle = title === 'Home'
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Fonts — preconnect eliminates the extra DNS round-trip; stylesheet link is non-blocking unlike @import -->
+    <!-- Fonts - preconnect eliminates the extra DNS round-trip; stylesheet link is non-blocking unlike @import -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" />
@@ -54,13 +54,13 @@ const fullTitle = title === 'Home'
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image"       content={new URL(ogImage, Astro.site)} />
 
-    <!-- Favicon placeholder — replace with real icon in Phase 6 -->
+    <!-- Favicon placeholder - replace with real icon in Phase 6 -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Structured data (JSON-LD) — passed per-page via schema prop -->
+    <!-- Structured data (JSON-LD) - passed per-page via schema prop -->
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
