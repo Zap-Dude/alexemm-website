@@ -136,11 +136,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .hero-inner {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .hero-headline {
-    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    font-size: clamp(3rem, 7vw, 5.5rem);
     line-height: 1.05;
     margin-bottom: var(--space-lg);
   }
@@ -156,6 +159,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     gap: var(--space-sm);
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   /* ----- About strip ----- */
