@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import zeton from '../../assets/images/zeton.jpg';
 ---
 
 <BaseLayout
@@ -48,11 +50,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <span class="item-tag">Creative · WIP</span>
             <span class="item-year">Ongoing</span>
             <div class="portfolio-item-image">
-              <img
-                src="/images/zeton.jpg"
+              <!-- Displayed at 160px in both the desktop and mobile layouts,
+                   from an 832px source. -->
+              <Image
+                src={zeton}
                 alt="Zeton - two moons over a barren landscape"
-                width="832"
-                height="1248"
+                widths={[160, 320]}
+                sizes="160px"
                 loading="lazy"
               />
             </div>

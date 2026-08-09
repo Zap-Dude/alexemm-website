@@ -1,5 +1,15 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import heroPortrait from '../assets/images/alex-hero.jpg';
+import fencing1 from '../assets/images/alex-fencing-1.jpg';
+
+// Both images now live in src/assets, so the schema cannot point at a
+// public path any more. Derive it from the processed asset instead.
+const schemaImage = new URL(heroPortrait.src, Astro.site).href;
+
+// .container--narrow gives 640px of content at its widest.
+const narrowSizes = '(max-width: 800px) calc(100vw - 3rem), 640px';
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -7,7 +17,7 @@ const personSchema = {
   "name": "Alexandros Emmanouilidis",
   "alternateName": "Alex Emmanouilidis",
   "url": "https://alexemm.com",
-  "image": "https://alexemm.com/images/alex-hero.jpg",
+  "image": schemaImage,
   "description": "Computer Science student at the University of Cyprus, national fencing champion, and fantasy writer based in Cyprus.",
   "jobTitle": "Computer Science Student",
   "alumniOf": {
@@ -36,12 +46,13 @@ const personSchema = {
       <h1>My story</h1>
 
       <div class="about-hero-img">
-        <img
-          src="/images/alex-hero.jpg"
+        <Image
+          src={heroPortrait}
           alt="Alexandros Emmanouilidis"
-          width="720"
-          height="420"
+          widths={[640, 960]}
+          sizes={narrowSizes}
           loading="eager"
+          fetchpriority="high"
         />
       </div>
 
@@ -79,11 +90,11 @@ const personSchema = {
         </p>
 
         <div class="about-fencing-img">
-          <img
-            src="/images/alex-fencing-1.jpg"
+          <Image
+            src={fencing1}
             alt="Alexandros competing in fencing"
-            width="720"
-            height="480"
+            widths={[640, 1280]}
+            sizes={narrowSizes}
             loading="lazy"
           />
         </div>

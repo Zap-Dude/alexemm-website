@@ -1,5 +1,19 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import fencingBw from '../assets/images/alex-fencing-bw.jpg';
+import fencing1 from '../assets/images/alex-fencing-1.jpg';
+import fencing2 from '../assets/images/alex-fencing-2.jpg';
+import fencing3 from '../assets/images/alex-fencing-3.jpg';
+import fencing4 from '../assets/images/alex-fencing-4.jpg';
+import fencingFather from '../assets/images/alex-fencing-with-father.jpg';
+import fencingAge7 from '../assets/images/alex-fencing-age-7.jpg';
+
+// The gallery is 3-up above 900px, 2-up to 540px, then a single column.
+// Widths are picked off those breakpoints so a phone is not handed a
+// desktop-sized file, which is what it was getting before.
+const galleryItemSizes = '(max-width: 540px) calc(100vw - 3rem), (max-width: 900px) 50vw, 33vw';
+const galleryWideSizes = '(max-width: 540px) calc(100vw - 3rem), (max-width: 900px) calc(100vw - 3rem), 66vw';
 ---
 
 <BaseLayout
@@ -22,12 +36,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </p>
         </div>
         <div class="sport-hero-img">
-          <img
-            src="/images/alex-fencing-bw.jpg"
+          <Image
+            src={fencingBw}
             alt="Alexandros fencing in competition"
-            width="480"
-            height="560"
+            widths={[320, 640]}
+            sizes="320px"
             loading="eager"
+            fetchpriority="high"
           />
         </div>
       </div>
@@ -57,44 +72,56 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <h2 class="gallery-title">From the piste</h2>
         <div class="gallery">
           <div class="gallery-item gallery-item--wide">
-            <img
-              src="/images/alex-fencing-1.jpg"
+            <Image
+              src={fencing1}
               alt="Alexandros in fencing competition"
+              widths={[660, 900, 1320]}
+              sizes={galleryWideSizes}
               loading="lazy"
             />
           </div>
           <div class="gallery-item">
-            <img
-              src="/images/alex-fencing-2.jpg"
+            <Image
+              src={fencing2}
               alt="Alexandros competing in épée"
+              widths={[340, 680]}
+              sizes={galleryItemSizes}
               loading="lazy"
             />
           </div>
           <div class="gallery-item">
-            <img
-              src="/images/alex-fencing-3.jpg"
+            <Image
+              src={fencing3}
               alt="Alexandros at a fencing tournament"
+              widths={[340, 680]}
+              sizes={galleryItemSizes}
               loading="lazy"
             />
           </div>
           <div class="gallery-item">
-            <img
-              src="/images/alex-fencing-4.jpg"
+            <Image
+              src={fencing4}
               alt="Alexandros in fencing gear"
+              widths={[340, 680]}
+              sizes={galleryItemSizes}
               loading="lazy"
             />
           </div>
           <div class="gallery-item">
-            <img
-              src="/images/alex-fencing-with-father.jpg"
+            <Image
+              src={fencingFather}
               alt="Alexandros with his father at a fencing event"
+              widths={[340, 680]}
+              sizes={galleryItemSizes}
               loading="lazy"
             />
           </div>
           <div class="gallery-item gallery-item--accent">
-            <img
-              src="/images/alex-fencing-age-7.jpg"
+            <Image
+              src={fencingAge7}
               alt="Alexandros fencing aged 7"
+              widths={[340, 680]}
+              sizes={galleryItemSizes}
               loading="lazy"
             />
             <span class="gallery-caption">Age 7. Already serious about it.</span>

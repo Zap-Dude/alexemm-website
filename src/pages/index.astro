@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import fencingBw from '../assets/images/alex-fencing-bw.jpg';
 ---
 
 <BaseLayout
@@ -101,12 +103,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <a href="/sport" class="btn btn--ghost">The full story</a>
       </div>
       <div class="sport-photo-wrap">
-        <img
-          src="/images/alex-fencing-bw.jpg"
+        <Image
+          src={fencingBw}
           alt="Alexandros fencing in competition"
           class="sport-photo"
-          width="400"
-          height="480"
+          widths={[280, 560]}
+          sizes="280px"
           loading="lazy"
         />
       </div>
