@@ -181,9 +181,17 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling is opt-in, not a default imposed on everyone. For
+   people who get motion sick, an unguarded smooth scroll is the problem,
+   not a nicety. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -324,6 +332,34 @@ em { font-style: italic; }
   border-radius: 2px;
 }
 
+/* ----- Skip link -----
+   First focusable thing in the document. Without it a keyboard user tabs
+   through six nav items on every single page before reaching the content.
+   Off-screen rather than display:none, so screen readers still announce it.
+   Text on --color-text rather than the accent: 15.78:1, and it sidesteps
+   the accent contrast problem the redesign is dealing with separately. */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  transform: translateY(-150%);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 4px 0;
+  text-decoration: none;
+  transition: transform var(--transition);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  color: var(--color-bg);
+}
+
 /* ----- Images ----- */
 img {
   max-width: 100%;
@@ -353,5 +389,24 @@ img {
   .container,
   .container--narrow {
     padding-inline: var(--space-sm);
+  }
+}
+
+/* ----- Reduced motion -----
+   Last block in the file. Neutralises every transition and animation for
+   anyone who has asked their system for less motion, including the ones
+   added in scoped component styles. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
