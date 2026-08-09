@@ -5,6 +5,28 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# The live site sent exactly one security header. These are the ones that
+# cannot break a static site with no third-party anything.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+    # Report-Only first, deliberately. Flip the header name to
+    # Content-Security-Policy once a real deploy has been checked with the
+    # console open, including at a mobile viewport where the nav toggle is
+    # the only script on the page. The policy itself does not change.
+    #
+    # script-src is a plain 'self' because the nav script is emitted as a
+    # real file, not inlined. style-src keeps 'unsafe-inline' because Astro
+    # inlines scoped component styles by design and hashing all of them is
+    # not worth it.
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+
 [[redirects]]
   from = "http://alexemm.com/*"
   to = "https://alexemm.com/:splat"
