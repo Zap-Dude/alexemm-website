@@ -30,10 +30,12 @@ const fullTitle = title === 'Home'
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Fonts - preconnect eliminates the extra DNS round-trip; stylesheet link is non-blocking unlike @import -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" />
+    <!-- Fonts - self-hosted, declared in global.css. Nothing is fetched
+         from a third-party origin. Only the two faces that render above
+         the fold on every page are preloaded: the serif for the heading,
+         the sans at 400 for body copy. The rest load on demand. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/dm-serif-display-400-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/dm-sans-400-latin.woff2" crossorigin />
 
     <!-- Primary meta -->
     <title>{fullTitle}</title>

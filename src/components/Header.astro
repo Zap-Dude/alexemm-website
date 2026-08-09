@@ -85,8 +85,11 @@ const { pathname } = Astro.url;
     color: var(--color-text);
   }
 
+  /* 600, not 700. Google served DM Sans clamped to 300-600, so the 700
+     this used to ask for has always rendered at 600. Self-hosting ships
+     the four weights actually used, and this now says what it does. */
   .wordmark-alex {
-    font-weight: 700;
+    font-weight: 600;
   }
 
   .wordmark-emm {
