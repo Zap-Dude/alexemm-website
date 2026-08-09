@@ -1,0 +1,36 @@
+name: Purge old form submissions
+
+# The privacy policy promises contact form submissions are deleted after
+# 6 months. Netlify will not do that on its own, so this does.
+#
+# Runs on the 1st of each month. Also runnable by hand, where it defaults to
+# a dry run so you can see what it would remove before it removes anything.
+
+on:
+  schedule:
+    - cron: '0 3 1 * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report what would be deleted without deleting it'
+        type: boolean
+        default: true
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Delete submissions past the retention period
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          RETENTION_MONTHS: '6'
+          # Scheduled runs delete for real. Manual runs honour the input.
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+        run: node scripts/purge-form-submissions.mjs
