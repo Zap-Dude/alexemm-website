@@ -1,10 +1,40 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const author = {
+  "@type": "Person",
+  "name": "Alexandros Emmanouilidis",
+  "url": "https://alexemm.com/about"
+};
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Gomoku",
+    "headline": "Gomoku",
+    "description": "A fully playable Gomoku board game with an AI opponent, built in Java. First-year Computer Science coursework with three play modes and JUnit tests.",
+    "url": "https://alexemm.com/portfolio/gomoku/",
+    "genre": "Software",
+    "inLanguage": "en-GB",
+    "author": author
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://alexemm.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://alexemm.com/portfolio/" },
+      { "@type": "ListItem", "position": 3, "name": "Gomoku" }
+    ]
+  }
+];
 ---
 
 <BaseLayout
   title="Gomoku"
   description="A fully playable Gomoku board game with AI opponent, built in Java by Alexandros Emmanouilidis. First-year CS coursework with three play modes and JUnit tests."
+  schema={schema}
 >
 
   <section class="section">

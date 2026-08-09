@@ -8,7 +8,9 @@ interface Props {
   description?: string;
   ogImage?: string;
   canonicalURL?: string;
-  schema?: object;
+  // An array is emitted as a JSON-LD array, which is how a page carries
+  // more than one entity - the portfolio pages have a work and a breadcrumb.
+  schema?: object | object[];
   noindex?: boolean;
 }
 
@@ -64,6 +66,14 @@ const fullTitle = title === 'Home'
 
     <!-- Sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Feed -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Alex Emmanouilidis"
+      href={new URL('rss.xml', Astro.site)}
+    />
 
     <!-- Structured data (JSON-LD) - passed per-page via schema prop -->
     {schema && (

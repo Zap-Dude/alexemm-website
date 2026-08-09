@@ -2,11 +2,29 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import fencingBw from '../assets/images/alex-fencing-bw.jpg';
+
+// No SearchAction: there is no site search, and claiming one that does
+// not exist is how you get the whole block ignored.
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Alex Emmanouilidis",
+  "alternateName": "alexemm",
+  "url": "https://alexemm.com",
+  "description": "Personal site of Alexandros Emmanouilidis - Computer Science student, fencer, and writer based in Cyprus.",
+  "inLanguage": "en-GB",
+  "author": {
+    "@type": "Person",
+    "name": "Alexandros Emmanouilidis",
+    "url": "https://alexemm.com/about"
+  }
+};
 ---
 
 <BaseLayout
   title="Home"
   description="Alexandros Emmanouilidis - Computer Science student and fencer based in Cyprus. Studying networks at UCY, interning at PwC, and building a fantasy world."
+  schema={websiteSchema}
 >
 
   <!-- ===================== HERO ===================== -->

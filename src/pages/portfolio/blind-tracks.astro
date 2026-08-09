@@ -1,10 +1,41 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const author = {
+  "@type": "Person",
+  "name": "Alexandros Emmanouilidis",
+  "url": "https://alexemm.com/about"
+};
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Blind Tracks",
+    "headline": "Blind Tracks",
+    "description": "A fantasy short story. A Null enters a storm alone to find a missing convoy member.",
+    "url": "https://alexemm.com/portfolio/blind-tracks/",
+    "genre": "Fantasy",
+    "inLanguage": "en-GB",
+    "author": author,
+    "award": "Third place, UCY Student Club Literary Competition 2026"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://alexemm.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://alexemm.com/portfolio/" },
+      { "@type": "ListItem", "position": 3, "name": "Blind Tracks" }
+    ]
+  }
+];
 ---
 
 <BaseLayout
   title="Blind Tracks"
   description="A fantasy short story by Alexandros Emmanouilidis - a Null enters a storm alone to find a missing convoy member. Third place, UCY Literary Competition 2026."
+  schema={schema}
 >
 
   <article class="section">
