@@ -71,6 +71,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               ></textarea>
             </div>
 
+            <!-- Article 13 requires this at the point of collection, not
+                 only behind a footer link. Deliberately no consent tick box:
+                 the legal basis is legitimate interests, and a box would
+                 misrepresent that. -->
+            <p class="form-notice">
+              Your name, email and message go to me and to nobody else. They are stored
+              by Netlify in the United States, kept for 6 months, and used only to reply
+              to you. Full detail in the <a href="/privacy">privacy policy</a>.
+            </p>
+
             <button type="submit" class="btn btn--primary submit-btn">Send message</button>
           </form>
         </div>
@@ -79,14 +89,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="links-wrap">
           <h2 class="contact-subhead">Elsewhere</h2>
 
+          <!-- No email address is published anywhere on this site. The form
+               above is the direct channel; these are the public profiles. -->
           <ul class="contact-links" role="list">
-            <li>
-              <a href="mailto:alexemm1386@outlook.com" class="contact-link">
-                <span class="link-icon" aria-hidden="true">✉</span>
-                <span class="link-label">Email</span>
-                <span class="link-value">alexemm1386@outlook.com</span>
-              </a>
-            </li>
             <li>
               <a
                 href="https://instagram.com/alexandros_emmanouilides"
@@ -192,6 +197,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     resize: vertical;
     min-height: 140px;
     line-height: 1.6;
+  }
+
+  .form-notice {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    max-width: 58ch;
+    margin-bottom: 0;
   }
 
   .submit-btn {

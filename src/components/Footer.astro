@@ -21,6 +21,17 @@ const year = new Date().getFullYear();
 
     <p class="footer-copy">&copy; {year} Alexandros Emmanouilidis</p>
   </div>
+
+  <div class="container">
+    <nav class="footer-legal" aria-label="Legal">
+      <ul role="list">
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/cookies">Cookies</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="/credits">Credits</a></li>
+      </ul>
+    </nav>
+  </div>
 </footer>
 
 <style>
@@ -77,6 +88,34 @@ const year = new Date().getFullYear();
     margin: 0;
     max-width: none;
     white-space: nowrap;
+  }
+
+  /* Legal row - deliberately subordinate to the nav above it. Smaller,
+     muted, separated by a rule. These need to be findable, not prominent. */
+  .footer-legal {
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+  }
+
+  .footer-legal ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xs) var(--space-md);
+    list-style: none;
+  }
+
+  .footer-legal a {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .footer-legal a:hover {
+    color: var(--color-text);
+    text-decoration: underline;
   }
 
   @media (max-width: 768px) {
