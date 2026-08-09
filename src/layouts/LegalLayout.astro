@@ -1,0 +1,170 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  heading?: string;
+  description: string;
+  lastUpdated: Date;
+}
+
+const { title, heading, description, lastUpdated } = Astro.props;
+
+const formattedDate = lastUpdated.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="section legal">
+    <div class="container--narrow">
+
+      <header class="legal-header">
+        <span class="section-label">Legal</span>
+        <h1 class="legal-title">{heading ?? title}</h1>
+        <p class="legal-updated">
+          Last updated
+          <time datetime={lastUpdated.toISOString().slice(0, 10)}>{formattedDate}</time>
+        </p>
+      </header>
+
+      <div class="legal-body">
+        <slot />
+      </div>
+
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  /* These four pages are reference documents, not feature pages. Quieter
+     type than the rest of the site, a narrower measure, and a lot of air
+     between sections so a wall of prose stays scannable. */
+
+  .legal-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .legal-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+
+  .legal-updated {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .legal-body {
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 62ch;
+  }
+
+  .legal-body :global(p) {
+    max-width: none;
+    margin-bottom: 1.3em;
+  }
+
+  .legal-body :global(h2) {
+    font-size: 1.5rem;
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-sm);
+  }
+
+  /* First heading sits closer, the header block above already gave it room */
+  .legal-body :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .legal-body :global(h3) {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xs);
+  }
+
+  .legal-body :global(ul),
+  .legal-body :global(ol) {
+    padding-left: 1.4rem;
+    margin-bottom: 1.3em;
+  }
+
+  .legal-body :global(li) {
+    margin-bottom: 0.5em;
+  }
+
+  .legal-body :global(li:last-child) {
+    margin-bottom: 0;
+  }
+
+  .legal-body :global(strong) {
+    font-weight: 600;
+  }
+
+  /* Tables - the legal basis table on /privacy, the credits table on /credits */
+  .legal-body :global(.legal-table-wrap) {
+    overflow-x: auto;
+    margin-bottom: 1.3em;
+  }
+
+  .legal-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    text-align: left;
+  }
+
+  .legal-body :global(th) {
+    font-weight: 600;
+    color: var(--color-text);
+    border-bottom: 1.5px solid var(--color-border);
+    padding: 0.6rem 0.75rem 0.6rem 0;
+    vertical-align: top;
+  }
+
+  .legal-body :global(td) {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.75rem 0.75rem 0.75rem 0;
+    vertical-align: top;
+    color: var(--color-text-muted);
+  }
+
+  .legal-body :global(tbody tr:last-child td) {
+    border-bottom: none;
+  }
+
+  /* Placeholder markers - deliberately loud. Nothing should ship with one
+     of these still visible, so they must be impossible to skim past. */
+  .legal-body :global(.placeholder) {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    background: var(--color-surface);
+    border: 1px dashed var(--color-accent-dark);
+    color: var(--color-accent-dark);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+  }
+
+  /* The supervisory authority block on /privacy */
+  .legal-body :global(.legal-address) {
+    border-left: 3px solid var(--color-border);
+    padding-left: var(--space-md);
+    margin-bottom: 1.3em;
+  }
+
+  .legal-body :global(.legal-address p) {
+    margin-bottom: 0.2em;
+  }
+
+  .legal-body :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>
