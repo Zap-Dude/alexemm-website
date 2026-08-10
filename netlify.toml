@@ -3,7 +3,8 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+  # Astro 7 requires Node 22.12 or newer (engines field: >=22.12.0).
+  NODE_VERSION = "22"
 
 # The live site sent exactly one security header. These are the ones that
 # cannot break a static site with no third-party anything.
